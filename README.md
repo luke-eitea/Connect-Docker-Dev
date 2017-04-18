@@ -19,7 +19,7 @@ https://git-for-windows.github.io/
 * from the Windows-Command-Line, make a new directory (mkdir DIRNAME) and change to the new directory (cd DIRNAME)
 * clone the GIT Repository to your PC with "git clone https://github.com/eitea/Connect-Docker-Dev.git ."
 * build the Docker Images with "docker-compose build" - this take some time...
-* start the container with "docker-compose up" ATTENTION: please start the container with the right permission (run as admin)
+* start the container with "docker-compose start" ATTENTION: please start the container with the right permission (run as admin)
 
 
 
@@ -35,7 +35,7 @@ apt-get update && apt-get -y install git
 * from bash, make a new directory (mkdir DIRNAME) and change to the new directory (cd DIRNAME)
 * clone the GIT Repository to your PC with "git clone https://github.com/eitea/Connect-Docker-Dev.git ."
 * build the Docker Images with "docker-compose build" - this take some time...
-* start the container with "docker-compose up"
+* start the container with "docker-compose start"
 
 ###### no warranty ######
 

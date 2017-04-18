@@ -9,4 +9,4 @@ else
     find /var/www/html -type d -exec chmod 755 {} \;
     find /var/www/html -type f -exec chmod 644 {} \;
 fi 
-/usr/local/bin/apache2-foreground
+exec /usr/local/bin/docker-php-entrypoint

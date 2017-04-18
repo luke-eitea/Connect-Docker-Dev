@@ -2,6 +2,9 @@ version: '3'
 services:
  php-test:
   build: ./php/.
+  ports:
+   - "80:80"
+  restart: always
   volumes:
    - php-test:/var/www/html
   command: git clone --progress https://github.com/eitea/T-Time.git /var/www/html/

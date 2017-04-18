@@ -14,7 +14,7 @@ services:
    - c-php:/var/www/html
   depends_on:
    - c-db
-  command: /etc/check_install.sh
+  ENTRYPOINT: ["/etc/check_install.sh"]
  c-phpmyadmin:
   build: ./phpmyadmin/.
   ports:

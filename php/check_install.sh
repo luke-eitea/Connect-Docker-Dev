@@ -5,3 +5,4 @@ if [ -e "$file" ]; then
 else 
     git clone --progress https://github.com/eitea/T-Time.git /var/www/html/
 fi 
+/usr/local/bin/apache2-foreground

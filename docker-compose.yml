@@ -4,3 +4,5 @@ services:
   build: ./php/.
   volumes:
    - php-test:/var/www/html
+volumes:
+ php-test

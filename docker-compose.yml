@@ -1,12 +1,30 @@
 version: '3'
 services:
- php-test:
+ c-db:
+  build: ./db/.
+  volumes:
+   - c-db:/var/lib/mysql
+  restart: always
+ c-php:
   build: ./php/.
   ports:
    - "80:80"
   restart: always
   volumes:
-   - php-test:/var/www/html
+   - c-php:/var/www/html
+  depends_on:
+   - c-db
   command: /etc/check_install.sh
+ c-phpmyadmin:
+  build: ./phpmyadmin/.
+  ports:
+   - "8080:8080"
+  depends_on:
+   - c-db
+  restart: always
+ c-crone
+  build: ./crone/.
+  restart: always
 volumes:
- php-test:
+ c-php:
+ c-db:

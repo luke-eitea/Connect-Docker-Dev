@@ -3,3 +3,4 @@ RUN apt-get update && apt-get -y install git vim && rm -r /var/lib/apt/lists/*
 RUN docker-php-ext-install mysqli
 ADD check_install.sh /etc/check_install.sh
 RUN chmod 777 /etc/check_install.sh
+RUN sed -i -e 's/\r$//' /etc/check_install.sh

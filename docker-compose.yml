@@ -22,8 +22,8 @@ services:
   depends_on:
    - c-db
   restart: always
- c-crone
-  build: ./crone/.
+ c-cron
+  build: ./cron/.
   restart: always
 volumes:
  c-php:

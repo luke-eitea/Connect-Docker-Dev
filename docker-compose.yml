@@ -4,5 +4,6 @@ services:
   build: ./php/.
   volumes:
    - php-test:/var/www/html
+  command: git clone --progress https://github.com/eitea/T-Time.git /var/www/html/
 volumes:
  php-test:

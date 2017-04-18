@@ -22,7 +22,7 @@ services:
   depends_on:
    - c-db
   restart: always
- c-cron
+ c-cron:
   build: ./cron/.
   restart: always
 volumes:

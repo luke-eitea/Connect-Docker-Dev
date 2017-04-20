@@ -21,6 +21,7 @@ https://git-for-windows.github.io/
 * build the Docker Images with "docker-compose up" - this take some time...
   please start the container with the right permission (run as admin)
 
+after some time, you can connect over http://localhost to connect.
 
 
 for Linux:
@@ -36,6 +37,7 @@ apt-get update && apt-get -y install git
 * clone the GIT Repository to your PC with "git clone https://github.com/eitea/Connect-Docker-Dev.git ."
 * build the Docker Images with "docker-compose up" - this take some time...
 
+after some time, you can connect over http://localhost to connect.
 
 ###### no warranty ######
 

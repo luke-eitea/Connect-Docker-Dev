@@ -10,6 +10,8 @@ services:
   ports:
    - "80:80"
   restart: always
+  environment:
+   - IS_Container=dev
   volumes:
    - c-php:/var/www/html
   depends_on:

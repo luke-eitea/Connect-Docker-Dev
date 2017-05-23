@@ -12,9 +12,6 @@ services:
   restart: always
   environment:
    - IS_Container=dev
-   - MEMORY_LIMIT=128M
-   - POST_MAX_SIZE=60M
-   - UPLOAD_MAX_FILESIZE=60M
   volumes:
    - c-php:/var/www/html
   depends_on:

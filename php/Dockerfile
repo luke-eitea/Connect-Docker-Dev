@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.0-apache
 RUN apt-get update && apt-get -y install git vim libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev && rm -r /var/lib/apt/lists/*
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install -j$(nproc) iconv mcrypt

@@ -4,7 +4,7 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install -j$(nproc) iconv mcrypt gd
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 #RUN docker-php-ext-install -j$(nproc) gd
-RUN echo '#!/bin/bash\nfile=/var/www/html/home.php\nif [ -e "$file" ]; then\n    echo "File does exist"\n    exec /usr/local/bin/apache2-foreground\n	else\n    git clone --progress https://github.com/eitea/T-Time.git /var/www/html/\n    echo "Options +FollowSymLinks" > /var/www/html/.htaccess\n  echo "RewriteEngine On" > /var/www/html/.htaccess\n  echo "RewriteRule ^(.*)$ index.php [QSA]" > /var/www/html/.htaccess\n  chown www-data:www-data  -R /var/www/html\n    find /var/www/html -type d -exec chmod 755 {} \;\n    find /var/www/html -type f -exec chmod 644 {} \;\n    exec /usr/local/bin/apache2-foreground\nfi\n' >/etc/check_install.sh
+RUN echo '#!/bin/bash\nfile=/var/www/html/home.php\nif [ -e "$file" ]; then\n    echo "File does exist"\n    exec /usr/local/bin/apache2-foreground\n	else\n    git clone --progress https://github.com/eitea/T-Time.git /var/www/html/\n    echo "Options +FollowSymLinks" > /var/www/html/.htaccess\n  echo "RewriteEngine On" >> /var/www/html/.htaccess\n  echo "RewriteRule ^(.*)$ index.php [QSA]" >> /var/www/html/.htaccess\n  chown www-data:www-data  -R /var/www/html\n    find /var/www/html -type d -exec chmod 755 {} \;\n    find /var/www/html -type f -exec chmod 644 {} \;\n    exec /usr/local/bin/apache2-foreground\nfi\n' >/etc/check_install.sh
 RUN chmod o+x /etc/check_install.sh
 RUN a2enmod rewrite
 RUN echo file_uploads = On  > /usr/local/etc/php/conf.d/uploads.ini

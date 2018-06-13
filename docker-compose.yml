@@ -2,6 +2,8 @@ version: '3'
 services:
  c-db:
   build: ./db/.
+  ports: 
+    - "3306:3306"
   volumes:
    - c-db:/var/lib/mysql
   restart: always
@@ -13,14 +15,13 @@ services:
   environment:
    - IS_Container=dev
   volumes:
-   - c-php:/var/www/html
+   - D:/xampp/htdocs/Connect:/var/www/html
   depends_on:
    - c-db
-  command: /bin/sh -c "/etc/check_install.sh"
  c-phpmyadmin:
   build: ./phpmyadmin/.
   ports:
-   - "8080:8080"
+   - "8081:80"
   depends_on:
    - c-db
   restart: always
@@ -28,5 +29,4 @@ services:
   build: ./cron/.
   restart: always
 volumes:
- c-php:
  c-db:

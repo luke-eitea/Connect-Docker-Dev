@@ -12,10 +12,8 @@ services:
   ports:
    - "80:80"
   restart: always
-  environment:
-   - IS_Container=dev
   volumes:
-   - D:/xampp/htdocs/Connect:/var/www/html
+   - /home/eitea/Schreibtisch/Connect/html:/var/www/html
   depends_on:
    - c-db
  c-phpmyadmin:
@@ -28,5 +26,16 @@ services:
  c-cron:
   build: ./cron/.
   restart: always
+ c-minio:
+  image: minio/minio
+  ports:
+   - "9001:9000"
+  environment:
+   MINIO_ACCESS_KEY: "AKIAIOSFODNN7EXAMPLE"
+   MINIO_SECRET_KEY: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+  volumes:
+   - c-minio:/data
+  command: server /data
 volumes:
  c-db:
+ c-minio:

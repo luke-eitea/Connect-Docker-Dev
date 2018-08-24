@@ -10,7 +10,7 @@ services:
  c-php:
   build: ./php/.
   ports:
-   - "80:80"
+   - "81:80"
   restart: always
   volumes:
    - /home/eitea/Schreibtisch/Connect/html:/var/www/html
@@ -26,6 +26,13 @@ services:
  c-cron:
   build: ./cron/.
   restart: always
+ c-smtp:
+  build: ./smtp/.
+  restart: always
+  ports:
+   - "26:25"
+  volumes:
+   - /home/eitea/Schreibtisch/Connect/fake-smtp-output:/output
  c-minio:
   image: minio/minio
   ports:
@@ -36,6 +43,16 @@ services:
   volumes:
    - c-minio:/data
   command: server /data
+ c-imap:
+  image: antespi/docker-imap-devel:latest
+  ports:
+   - "25:25"
+   - "143:143"
+   - "993:993"
+  environment:
+   - MAILNAME=example.org
+   - MAIL_ADDRESS=address@example.org
+   - MAIL_PASS=pass
 volumes:
  c-db:
  c-minio:

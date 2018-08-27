@@ -9,6 +9,8 @@ services:
   restart: always
  c-php:
   build: ./php/.
+  environment:
+   CONNECT_DEVELOPMENT_MODE: "true"
   ports:
    - "81:80"
   restart: always
